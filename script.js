@@ -114,6 +114,8 @@ const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterNameText = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
+const healthBarFill = document.querySelector("#healthBarFill");
+const monsterHealthBarFill = document.querySelector("#monsterHealthBarFill");
 
 const weapons = [
     {
@@ -228,6 +230,7 @@ function update(location) {
     button2.onclick = location["button functions"][1];
     button3.onclick = location["button functions"][2];
     text.innerText = location.text;
+    updateProgressBars();
 }
 
 function goTown() {
@@ -253,6 +256,8 @@ function buyHealth() {
         health = health + 10;
         goldText.innerText = gold;
         healthText.innerText = health;
+        updateProgressBars();
+        triggerEffect("flash-green");
 
     } else {
         text.innerText = "You do not have enough gold.";
@@ -314,10 +319,10 @@ function fightDragon() {
 function goFight() {
     update(locations[3]);
     monsterHealth = monsters[fighting].health;
-    monsterStats.style.display = "block";
+    monsterStats.style.display = "flex";
     monsterNameText.innerText = monsters[fighting].name;
     monsterHealthText.innerText = monsterHealth;
-
+    updateProgressBars();
 }
 
 function attack() {
@@ -325,15 +330,19 @@ function attack() {
     text.innerText += " You attack with your " + weapons[currentWeapon].name + ".";
 
     if (isMonsterHit()) {
-        health -= getMonsterAttackValue(monsters[fighting].level);
-
+        const damage = getMonsterAttackValue(monsters[fighting].level);
+        health -= damage;
+        triggerEffect("shake");
     } else {
         text.innerText += " You miss.";
+        triggerEffect("flash-red");
     }
 
     monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
     healthText.innerText = health;
     monsterHealthText.innerText = monsterHealth;
+    updateProgressBars();
+
     if (health <= 0) {
         lose();
     } else if (monsterHealth <= 0) {
@@ -366,6 +375,8 @@ function dodge() {
     // Monster still attacks you after you dodge
     health -= monsters[fighting].level;
     healthText.innerText = health;
+    updateProgressBars();
+    triggerEffect("shake");
     if (health <= 0) {
         lose();
     }
@@ -403,6 +414,7 @@ function restart() {
     goldText.innerText = gold;
     healthText.innerText = health;
     xpText.innerText = xp;
+    updateProgressBars();
     goTown();
 }
 
@@ -438,14 +450,49 @@ function guess(number) { // Fixed: added number parameter instead of using undef
         text.innerText += "Right! You win 20 gold!";
         gold += 20;
         goldText.innerText = gold;
+        triggerEffect("flash-green");
 
     } else {
         text.innerText += "Wrong! You lose 10 health!"; // Fixed: typo "losse" -> "lose"
         health -= 10;
         healthText.innerText = health;
+        updateProgressBars();
+        triggerEffect("shake");
         if (health <= 0) {
             lose();
         }
     }
 
+}
+
+function updateProgressBars() {
+    const maxPlayerHealth = Math.max(100, health);
+    const playerHealthPct = Math.max(0, (health / maxPlayerHealth) * 100);
+    if (healthBarFill) {
+        healthBarFill.style.width = playerHealthPct + "%";
+    }
+
+    if (fighting !== undefined && monsters[fighting]) {
+        const maxMonsterHealth = monsters[fighting].health;
+        const monsterHealthPct = Math.max(0, (monsterHealth / maxMonsterHealth) * 100);
+        if (monsterHealthBarFill) {
+            monsterHealthBarFill.style.width = monsterHealthPct + "%";
+        }
+    }
+}
+
+function triggerEffect(type) {
+    const game = document.querySelector("#game");
+    if (!game) return;
+
+    game.classList.remove("effect-shake", "effect-flash-red", "effect-flash-green");
+    void game.offsetWidth; // Force reflow
+
+    if (type === "shake") {
+        game.classList.add("effect-shake");
+    } else if (type === "flash-red") {
+        game.classList.add("effect-flash-red");
+    } else if (type === "flash-green") {
+        game.classList.add("effect-flash-green");
+    }
 }

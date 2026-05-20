@@ -1,34 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPG - Dragon Repeller</title>
+    <!-- Google Fonts for Fantasy aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="new.css">
-
 </head>
-
 <body>
-    <div id="game">
-        <div id="stats">
-            <span>XP: <strong><span id="xpText">0</span></strong></span>
-            <span>Health: <strong><span id="healthText">100</span></strong></span>
-            <span>Gold: <strong><span id="goldText">50</span></strong></span>
-        </div>
-        <div id="controls">
-            <button id="button1">Go to store</button>
-            <button id="button2">Go to cave</button>
-            <button id="button3">Fight dragon</button>
-        </div>
-        <div id="monsterStats">
-            <span>Monster Name: <strong><span id="monsterName"></span></strong></span>
-            <span>Health: <strong><span id="monsterHealth"></span></strong></span>
-        </div>
-        <div id="text">
-            Welcome to Dragon Repeller. You must defeat the dragon that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons above.
+    <div id="game-container">
+        <header class="game-header">
+            <h1 class="game-title">Dragon Repeller</h1>
+            <p class="game-subtitle">A State-Driven Retro RPG</p>
+        </header>
+
+        <div id="game">
+            <!-- Player Stats Section -->
+            <div id="stats" class="stats-panel">
+                <div class="stat-card xp-card">
+                    <span class="stat-label">Experience</span>
+                    <span class="stat-value" id="xpText">0</span>
+                </div>
+                <div class="stat-card health-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Health</span>
+                        <span class="stat-value"><span id="healthText">100</span>/100</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="healthBarFill" class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="stat-card gold-card">
+                    <span class="stat-label">Gold</span>
+                    <span class="stat-value" id="goldText">50</span>
+                </div>
+            </div>
+
+            <!-- Monster Stats Panel (Shows during fight) -->
+            <div id="monsterStats" class="monster-panel">
+                <div class="monster-header">
+                    <span class="monster-icon">💀</span>
+                    <span id="monsterName" class="monster-name">Monster</span>
+                </div>
+                <div class="monster-health-section">
+                    <div class="stat-header">
+                        <span class="stat-label">Monster Health</span>
+                        <span id="monsterHealth" class="stat-value">0</span>
+                    </div>
+                    <div class="progress-bar monster-bar">
+                        <div id="monsterHealthBarFill" class="progress-fill monster-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Narrative / Dialogue Box -->
+            <div id="text-container">
+                <div id="text">
+                    Welcome to Dragon Repeller. You must defeat the dragon that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons below.
+                </div>
+            </div>
+
+            <!-- Controls Panel -->
+            <div id="controls" class="controls-panel">
+                <button id="button1" class="btn-fantasy btn-primary">Go to store</button>
+                <button id="button2" class="btn-fantasy btn-secondary">Go to cave</button>
+                <button id="button3" class="btn-fantasy btn-danger">Fight dragon</button>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
-
 </html>
