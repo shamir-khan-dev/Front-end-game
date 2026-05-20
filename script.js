@@ -116,6 +116,7 @@ const monsterNameText = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 const healthBarFill = document.querySelector("#healthBarFill");
 const monsterHealthBarFill = document.querySelector("#monsterHealthBarFill");
+const equippedWeaponEl = document.querySelector("#equippedWeapon");
 
 const weapons = [
     {
@@ -323,6 +324,7 @@ function goFight() {
     monsterNameText.innerText = monsters[fighting].name;
     monsterHealthText.innerText = monsterHealth;
     updateProgressBars();
+    updateEquipped();
 }
 
 function attack() {
@@ -470,6 +472,11 @@ function updateProgressBars() {
     const playerHealthPct = Math.max(0, (health / maxPlayerHealth) * 100);
     if (healthBarFill) {
         healthBarFill.style.width = playerHealthPct + "%";
+        // Dynamic color based on health %
+        healthBarFill.classList.remove("hp-high", "hp-mid", "hp-low");
+        if (playerHealthPct > 55) healthBarFill.classList.add("hp-high");
+        else if (playerHealthPct > 25) healthBarFill.classList.add("hp-mid");
+        else healthBarFill.classList.add("hp-low");
     }
 
     if (fighting !== undefined && monsters[fighting]) {
@@ -478,6 +485,14 @@ function updateProgressBars() {
         if (monsterHealthBarFill) {
             monsterHealthBarFill.style.width = monsterHealthPct + "%";
         }
+    }
+}
+
+function updateEquipped() {
+    if (equippedWeaponEl) {
+        const icons = ["🥢", "🗡️", "🔨", "⚔️"];
+        const icon = icons[currentWeapon] || "🥢";
+        equippedWeaponEl.textContent = icon + " " + weapons[currentWeapon].name.charAt(0).toUpperCase() + weapons[currentWeapon].name.slice(1);
     }
 }
 

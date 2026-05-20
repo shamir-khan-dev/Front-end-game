@@ -3,74 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPG - Dragon Repeller</title>
-    <!-- Google Fonts for Fantasy aesthetic -->
+    <title>Dragon Repeller — RPG</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="new.css">
 </head>
 <body>
-    <div id="game-container">
-        <header class="game-header">
-            <h1 class="game-title">Dragon Repeller</h1>
-            <p class="game-subtitle">A State-Driven Retro RPG</p>
-        </header>
 
-        <div id="game">
-            <!-- Player Stats Section -->
-            <div id="stats" class="stats-panel">
-                <div class="stat-card xp-card">
-                    <span class="stat-label">Experience</span>
-                    <span class="stat-value" id="xpText">0</span>
-                </div>
-                <div class="stat-card health-card">
-                    <div class="stat-header">
-                        <span class="stat-label">Health</span>
-                        <span class="stat-value"><span id="healthText">100</span>/100</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div id="healthBarFill" class="progress-fill" style="width: 100%"></div>
-                    </div>
-                </div>
-                <div class="stat-card gold-card">
-                    <span class="stat-label">Gold</span>
-                    <span class="stat-value" id="goldText">50</span>
-                </div>
-            </div>
-
-            <!-- Monster Stats Panel (Shows during fight) -->
-            <div id="monsterStats" class="monster-panel">
-                <div class="monster-header">
-                    <span class="monster-icon">💀</span>
-                    <span id="monsterName" class="monster-name">Monster</span>
-                </div>
-                <div class="monster-health-section">
-                    <div class="stat-header">
-                        <span class="stat-label">Monster Health</span>
-                        <span id="monsterHealth" class="stat-value">0</span>
-                    </div>
-                    <div class="progress-bar monster-bar">
-                        <div id="monsterHealthBarFill" class="progress-fill monster-fill" style="width: 100%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Narrative / Dialogue Box -->
-            <div id="text-container">
-                <div id="text">
-                    Welcome to Dragon Repeller. You must defeat the dragon that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons below.
-                </div>
-            </div>
-
-            <!-- Controls Panel -->
-            <div id="controls" class="controls-panel">
-                <button id="button1" class="btn-fantasy btn-primary">Go to store</button>
-                <button id="button2" class="btn-fantasy btn-secondary">Go to cave</button>
-                <button id="button3" class="btn-fantasy btn-danger">Fight dragon</button>
-            </div>
+    <!-- Animated background particles -->
+    <div class="bg-scene">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="particles">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
         </div>
     </div>
+
+    <!-- Main Game UI -->
+    <div id="game-wrap">
+
+        <!-- Title Banner -->
+        <div class="title-banner">
+            <div class="title-flame">🔥</div>
+            <h1 class="main-title">Dragon Repeller</h1>
+            <div class="title-flame">🔥</div>
+        </div>
+
+        <div id="game">
+
+            <!-- Player Stats Bar -->
+            <div class="hud-bar">
+                <div class="hud-stat" id="hud-hp">
+                    <div class="hud-icon">❤️</div>
+                    <div class="hud-info">
+                        <span class="hud-label">Health</span>
+                        <div class="hud-bar-wrap">
+                            <div class="hud-fill hp-fill" id="healthBarFill" style="width:100%"></div>
+                        </div>
+                        <span class="hud-val" id="healthText">100</span>
+                    </div>
+                </div>
+
+                <div class="hud-center">
+                    <div class="gold-badge">
+                        <span class="gold-icon">✦</span>
+                        <span id="goldText">50</span>
+                        <span class="gold-label">Gold</span>
+                    </div>
+                    <div class="xp-badge">
+                        <span class="xp-icon">⚡</span>
+                        <span id="xpText">0</span>
+                        <span class="xp-label">XP</span>
+                    </div>
+                </div>
+
+                <div class="hud-stat hud-stat-right" id="hud-mp">
+                    <div class="hud-info">
+                        <span class="hud-label right-label">Equipped</span>
+                        <span class="equipped-weapon" id="equippedWeapon">🥢 Stick</span>
+                    </div>
+                    <div class="hud-icon">⚔️</div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider"><span>⸻⸻ Realm of Auryn ⸻⸻</span></div>
+
+            <!-- Monster encounter panel -->
+            <div id="monsterStats" class="monster-encounter">
+                <div class="monster-info">
+                    <div class="monster-skull">☠️</div>
+                    <div class="monster-details">
+                        <span class="monster-label">YOU FACE</span>
+                        <span id="monsterName" class="monster-name-text">the Dragon</span>
+                    </div>
+                </div>
+                <div class="monster-hp-section">
+                    <div class="monster-hp-label">
+                        <span>Vitality</span>
+                        <span id="monsterHealth" class="monster-hp-num">300</span>
+                    </div>
+                    <div class="monster-bar-track">
+                        <div class="monster-bar-fill" id="monsterHealthBarFill" style="width:100%"></div>
+                        <div class="monster-bar-shine"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Narrative Log -->
+            <div class="log-container">
+                <div class="log-header">
+                    <span class="log-dot"></span>
+                    <span class="log-title">Chronicle</span>
+                    <span class="log-dot"></span>
+                </div>
+                <div id="text" class="log-text">
+                    You stand in the cobblestone town square. The torches flicker. A dragon lurks beyond the mountains. Where do you venture, hero?
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div id="controls" class="controls">
+                <button id="button1" class="action-btn btn-explore">Go to Store</button>
+                <button id="button2" class="action-btn btn-explore">Go to Cave</button>
+                <button id="button3" class="action-btn btn-danger">Fight Dragon</button>
+            </div>
+
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
