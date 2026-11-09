@@ -3,23 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dragon Repeller — RPG</title>
+    <title>Dragon Repeller RPG</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="new.css">
 </head>
 <body>
 
-    <!-- Animated background particles -->
-    <div class="bg-scene">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        <div class="particles">
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
-        </div>
+    <div class="dungeon_backdrop">
+        <div class="stone_texture_overlay"></div>
     </div>
 
     <!-- Main Game UI -->
@@ -27,9 +20,9 @@
 
         <!-- Title Banner -->
         <div class="title-banner">
-            <div class="title-flame">🔥</div>
+            <div class="crest_rune">⚔</div>
             <h1 class="main-title">Dragon Repeller</h1>
-            <div class="title-flame">🔥</div>
+            <div class="crest_rune">⚔</div>
         </div>
 
         <div id="game">
@@ -37,9 +30,9 @@
             <!-- Player Stats Bar -->
             <div class="hud-bar">
                 <div class="hud-stat" id="hud-hp">
-                    <div class="hud-icon">❤️</div>
+                    <div class="hud_symbol">HP</div>
                     <div class="hud-info">
-                        <span class="hud-label">Health</span>
+                        <span class="hud-label">VITALITY</span>
                         <div class="hud-bar-wrap">
                             <div class="hud-fill hp-fill" id="healthBarFill" style="width:100%"></div>
                         </div>
@@ -49,9 +42,9 @@
 
                 <div class="hud-center">
                     <div class="gold-badge">
-                        <span class="gold-icon">✦</span>
+                        <span class="gold-icon">⚜</span>
                         <span id="goldText">50</span>
-                        <span class="gold-label">Gold</span>
+                        <span class="gold-label">GOLD</span>
                     </div>
                     <div class="xp-badge">
                         <span class="xp-icon">⚡</span>
@@ -62,28 +55,32 @@
 
                 <div class="hud-stat hud-stat-right" id="hud-mp">
                     <div class="hud-info">
-                        <span class="hud-label right-label">Equipped</span>
-                        <span class="equipped-weapon" id="equippedWeapon">🥢 Stick</span>
+                        <span class="hud-label right-label">ARMAMENT</span>
+                        <span class="equipped-weapon" id="equippedWeapon">Stick</span>
                     </div>
-                    <div class="hud-icon">⚔️</div>
+                    <div class="hud_symbol">🗡</div>
                 </div>
             </div>
 
-            <!-- Divider -->
-            <div class="divider"><span>⸻⸻ Realm of Auryn ⸻⸻</span></div>
+            <!-- Viewport Scene Canvas -->
+            <div class="scene_viewport">
+                <img id="sceneImage" class="scene_art" src="store.png" alt="Dungeon Location">
+                <div class="scene_vignette"></div>
+                <div class="scene_caption" id="sceneCaption">Realm of Auryn : Town Square</div>
+            </div>
 
             <!-- Monster encounter panel -->
             <div id="monsterStats" class="monster-encounter">
                 <div class="monster-info">
-                    <div class="monster-skull">☠️</div>
+                    <div class="monster-skull">☠</div>
                     <div class="monster-details">
-                        <span class="monster-label">YOU FACE</span>
+                        <span class="monster-label">TARGET FOE</span>
                         <span id="monsterName" class="monster-name-text">the Dragon</span>
                     </div>
                 </div>
                 <div class="monster-hp-section">
                     <div class="monster-hp-label">
-                        <span>Vitality</span>
+                        <span>FOE VITALITY</span>
                         <span id="monsterHealth" class="monster-hp-num">300</span>
                     </div>
                     <div class="monster-bar-track">
@@ -97,7 +94,7 @@
             <div class="log-container">
                 <div class="log-header">
                     <span class="log-dot"></span>
-                    <span class="log-title">Chronicle</span>
+                    <span class="log-title">CHRONICLE OF VALOR</span>
                     <span class="log-dot"></span>
                 </div>
                 <div id="text" class="log-text">

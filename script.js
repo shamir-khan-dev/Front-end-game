@@ -231,6 +231,22 @@ function update(location) {
     button2.onclick = location["button functions"][1];
     button3.onclick = location["button functions"][2];
     text.innerText = location.text;
+
+    const sceneImage = document.querySelector("#sceneImage");
+    const sceneCaption = document.querySelector("#sceneCaption");
+    if (sceneImage && sceneCaption) {
+        if (location.name === "store") {
+            sceneImage.src = "store.png";
+            sceneCaption.innerText = "Merchant Store : Provisions and Blades";
+        } else if (location.name === "cave") {
+            sceneImage.src = "cave.png";
+            sceneCaption.innerText = "Dark Cavern : Depths of Auryn";
+        } else {
+            sceneImage.src = "store.png";
+            sceneCaption.innerText = "Realm of Auryn : Town Square";
+        }
+    }
+
     updateProgressBars();
 }
 
@@ -323,6 +339,22 @@ function goFight() {
     monsterStats.style.display = "flex";
     monsterNameText.innerText = monsters[fighting].name;
     monsterHealthText.innerText = monsterHealth;
+
+    const sceneImage = document.querySelector("#sceneImage");
+    const sceneCaption = document.querySelector("#sceneCaption");
+    if (sceneImage && sceneCaption) {
+        if (monsters[fighting].name === "slime") {
+            sceneImage.src = "slime.png";
+            sceneCaption.innerText = "Battlefield : Slime Encounter";
+        } else if (monsters[fighting].name === "lion") {
+            sceneImage.src = "lion.png";
+            sceneCaption.innerText = "Battlefield : Fanged Lion";
+        } else {
+            sceneImage.src = "cave.png";
+            sceneCaption.innerText = "Mountain Lair : Ancient Dragon";
+        }
+    }
+
     updateProgressBars();
     updateEquipped();
 }
@@ -490,9 +522,7 @@ function updateProgressBars() {
 
 function updateEquipped() {
     if (equippedWeaponEl) {
-        const icons = ["🥢", "🗡️", "🔨", "⚔️"];
-        const icon = icons[currentWeapon] || "🥢";
-        equippedWeaponEl.textContent = icon + " " + weapons[currentWeapon].name.charAt(0).toUpperCase() + weapons[currentWeapon].name.slice(1);
+        equippedWeaponEl.textContent = weapons[currentWeapon].name.charAt(0).toUpperCase() + weapons[currentWeapon].name.slice(1);
     }
 }
 

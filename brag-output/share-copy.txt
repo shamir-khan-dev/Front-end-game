@@ -10,3 +10,4 @@ Key Architecture Capabilities:
 
 Tech Stack: JavaScript, HTML5, CSS3, DOM API, Finite State Machine (FSM)
 Project Code: https://github.com/shamir-khan-dev/Front-end-game
+
