@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "historyId": "b05160c7-5562-4ca2-9dac-e2bd37fcb38f",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "assets/music/bgm.mp3": {
+      "hash": "04db783f03778873a9dc82eb80c3535c9136984011ddf7e4f72f1387af9035b2",
+      "content": "C:\\Users\\shami\\.cache\\hyperframes\\history\\b05160c7-5562-4ca2-9dac-e2bd37fcb38f\\blobs\\04\\04db783f03778873a9dc82eb80c3535c9136984011ddf7e4f72f1387af9035b2"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "C:\\Users\\shami\\.cache\\hyperframes\\history\\b05160c7-5562-4ca2-9dac-e2bd37fcb38f\\blobs\\53\\53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "1456e54002650919f287b6da163bf7dd5abb23501e0dbbb5734a267030c93ed2",
+      "content": "C:\\Users\\shami\\.cache\\hyperframes\\history\\b05160c7-5562-4ca2-9dac-e2bd37fcb38f\\blobs\\14\\1456e54002650919f287b6da163bf7dd5abb23501e0dbbb5734a267030c93ed2"
+    },
+    "package.json": {
+      "hash": "d5eaaecb26fa0a4e7d43b52e352f47e64fa122b4cd8df7cb725004f0533430ba",
+      "content": "C:\\Users\\shami\\.cache\\hyperframes\\history\\b05160c7-5562-4ca2-9dac-e2bd37fcb38f\\blobs\\d5\\d5eaaecb26fa0a4e7d43b52e352f47e64fa122b4cd8df7cb725004f0533430ba"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": {
+      "revision": null,
+      "id": "8cb0f0c6-1af7-422f-8bb7-bed7ff1ca77e"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "id": "8cb0f0c6-1af7-422f-8bb7-bed7ff1ca77e",
+        "scope": "project",
+        "report": "C:\\Users\\shami\\OneDrive\\Desktop\\Coding\\Frontend Projects\\front end game\\brag-output\\composition\\.hyperframes\\artifacts\\checks\\8cb0f0c6-1af7-422f-8bb7-bed7ff1ca77e.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 45000,
+            "cache": true,
+            "contrast": true,
+            "craft": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto",
+            "includeUnmounted": false
+          }
+        },
+        "createdAt": 1794191416876,
+        "contentHash": "0e90f38d998ad57cda844c84f15e86a9a5d9d177fcd9c2197c5617eb792fe3df",
+        "revision": null,
+        "inputFingerprint": "fa78d1733bfeb3be14675bc26f7c5127a9ef3960e31a372505502073b786ac8f",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "8f870a46-1b51-4ec5-a22a-a587cc86dc01",
+      "completedAt": 1794191489611,
+      "output": "C:\\Users\\shami\\OneDrive\\Desktop\\Coding\\Frontend Projects\\front end game\\brag-output\\brag.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

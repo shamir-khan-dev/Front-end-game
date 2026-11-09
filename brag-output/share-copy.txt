@@ -1,0 +1,12 @@
+Dragon Repeller: Pure Vanilla JavaScript RPG Engine & Finite State Machine
+
+Engineered a 60FPS browser RPG game entirely in vanilla JavaScript, HTML5, and CSS3 with zero external dependencies. Features deterministic turn combat, dynamic weapon durability, shop economy, and real time state transitions.
+
+Key Architecture Capabilities:
+• Finite state machine architecture managing game world locations and boss encounters
+• Dynamic combat damage formulas, weapon durability curves, and inventory matrices
+• Sub 10ms first input delay with direct native DOM manipulation and zero bundle bloat
+• Fully offline capable and cross device responsive retro arcade UI
+
+Tech Stack: JavaScript, HTML5, CSS3, DOM API, Finite State Machine (FSM)
+Project Code: https://github.com/shamir-khan-dev/Front-end-game
